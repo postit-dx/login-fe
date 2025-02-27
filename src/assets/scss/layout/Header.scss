@@ -1,7 +1,8 @@
 .Header {
     flex: 3; /* 30% 비율 */
-    padding: 5vh 0 0 5vh;
+    padding: 20px 0 0 20px;
     display: block;
+    height: auto;
 
     img {
         width: 150px;
@@ -10,7 +11,7 @@
 
     p {
         color: rgb(75, 81, 81);
-        font-size: 1.5em;
+        font-size: 1.2em;
         font-weight: bold;
         padding-top: 10px;
     }
