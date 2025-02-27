@@ -14,9 +14,10 @@ html {
         flex-direction: column;
         height: 100vh; /* 전체 화면 높이 사용 */
         overflow: hidden; /* 스크롤 방지 */
+               
 
         .Login {
-            flex: 7; /* 70% 비율 */
+            flex: 10;
             display: flex;
             flex-direction: column;
             justify-content: center;  // 가로 중앙 정렬
@@ -26,7 +27,7 @@ html {
                 color: #005793;
                 font-size: 2.4em;
                 font-weight: bold;
-                margin-bottom: 2vh;
+                margin-bottom: 50px;
             }
 
             .Main {
@@ -38,9 +39,10 @@ html {
                 flex-direction: column;
 
                 input {
-                    width: 400px;
+                    width: 440px;
                     height: 30px;
-                    padding: 20px;
+                    padding-top: 20px;
+                    padding-bottom: 30px;
                     margin: 10px;
                     border-width: 0 0 1px 0;
                     outline: none;
@@ -50,6 +52,7 @@ html {
 
                     &::placeholder {
                         color: #005793;
+                        opacity: 0.5;
                     }
 
                     &:-webkit-autofill { /* 자동완성 입력 시 */
@@ -63,16 +66,17 @@ html {
                 .Button {
                     width: 440px;
                     padding: 15px 10px;
-                    margin: 80px 0 0 0;
+                    margin: 70px 0 0 0;
                     align-items:center;
                     text-align: center;
                     justify-content: center;
                     background-color: #005793;
-                    border-width: 0;
+                    border: none;
                     color: #FFFFFF;
                     border-radius: 10px;
                     font-weight: bold;
                     font-size: 1.5em;
+                    cursor: pointer;
                 }
             }
         }
