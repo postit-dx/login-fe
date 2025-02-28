@@ -6,6 +6,7 @@ import axios from 'axios';
 function Login(props) {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
+    const [isCorrect, setIsCorrect] = useState(true);
 
     const handleLogin = async (e) => {
         try {
@@ -15,12 +16,17 @@ function Login(props) {
                 accountId : id,
                 password : password
             });
-            console.log(response.data);
+            
+            // console.log(response.data);
 
-            localStorage.setItem("accessToken", response.data.data.accessToken);
-            // window.location.href = "/vehicle";
-
+            const result = response.data.result;
+            if (result === "success") {
+                localStorage.setItem("accessToken", response.data.data.accessToken);
+                localStorage.setItem("isAdmin", response.data.data.isAdmin);
+                window.location.href = "/vehicle";
+            }
         } catch(err) {
+            setIsCorrect(false);  
             console.error(err.response ? `${err.response.status} ${err.response.data.message}` : err);
         }
     }
@@ -29,7 +35,7 @@ function Login(props) {
         <div>
             <Header />
             <div className={"Login"}>
-                <p>로그인</p>
+                <p className="Login_Text">로그인</p>
                 <div>
                     <form
                         className={"Main"}
@@ -49,12 +55,13 @@ function Login(props) {
                             value={password}
                             onChange={e => setPassword(e.target.value)}
                             onKeyDown={e => {
-                                if (e.key == "Enter") {
+                                if (e.key === "Enter") {
                                     e.preventDefault();
                                     handleLogin(e);
                                 }
                             }}
                         />
+                        <p className={isCorrect ? "login-alert" : "login-alert-view"}>아이디 또는 비밀번호가 틀렸습니다.</p>
                         <button
                             className={"Button"}
                             onClick={handleLogin}>

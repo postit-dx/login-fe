@@ -23,7 +23,7 @@ html {
             justify-content: center;  // 가로 중앙 정렬
             align-items: center;      // 세로 중앙 정렬
 
-            p {
+            .Login_Text {
                 color: #005793;
                 font-size: 2.4em;
                 font-weight: bold;
@@ -61,6 +61,17 @@ html {
                         font-size: 1.3em !important; /* 원래 크기 유지 */
                         transition: background-color 5000s ease-in-out 0s; /* 브라우저 기본 스타일 무효화 */
                     }
+                }
+
+                .login-alert {
+                    visibility: hidden;
+                }
+
+                .login-alert-view {
+                    display: flex;
+                    color: red;
+                    font-weight: 500;
+                    margin-top: 10px;
                 }
 
                 .Button {
